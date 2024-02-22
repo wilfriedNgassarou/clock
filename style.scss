@@ -1,0 +1,136 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background-color: cornflowerblue;
+}
+
+main {
+  width: 300px;
+  height: 300px;
+  background-color: rgba($color: #000000, $alpha: .9);
+  box-shadow: 0px 0px 20px white;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock {
+  --clock-size: 250px ;
+
+  background-color: white;
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hour {
+  --padding: 55px ;
+
+  transform-origin: bottom;
+  position: absolute;
+  top: var(--padding);
+  width: 3px;
+  height: calc((var(--clock-size) / 2) - var(--padding));
+  background-color: black;
+  z-index: 3;
+}
+
+.minute {
+  --padding: 35px ;
+
+  transform-origin: bottom;
+  position: absolute;
+  top: var(--padding);
+  height: calc((var(--clock-size) / 2) - var(--padding));
+  width: 2px;
+  background-color: black;
+  z-index: 2;
+}
+
+.second {
+  --padding: 30px ;
+
+  transform-origin: bottom;
+  position: absolute;
+  top: var(--padding);
+  height: calc((var(--clock-size) / 2) - var(--padding));
+  width: 1.5px;
+  background-color: red;
+  z-index: 1;
+}
+
+.mark {
+  --mark-size: 7px ;
+
+  position: absolute;
+  width: var(--mark-size);
+  height: var(--mark-size);
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.hour-text {
+  --time-size: 30px ;
+  --distance: calc(var(--clock-size) / 2 - (var(--time-size) / 1.5)) ;
+
+  font-weight: bold;
+  display: inline-block;
+  font-size: 20px;
+  width: var(--time-size);
+  height: var(--time-size);
+  line-height: var(--time-size);
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  transform: translate(
+    calc(cos( var(--angle) ) * var(--distance)),
+    calc(sin( var(--angle) ) * var(--distance))
+  );
+
+  &:nth-of-type(1) {
+    --angle: calc(5 * pi / 3) ;
+  }
+  &:nth-of-type(2) {
+    --angle: calc(11 * pi / 6) ;
+  }
+  &:nth-of-type(3) {
+    --angle: 0 ;
+  }
+  &:nth-of-type(4) {
+    --angle: calc(pi / 6) ;
+  }
+  &:nth-of-type(5) {
+    --angle: calc(pi / 3) ;
+  }
+  &:nth-of-type(6) {
+    --angle: calc(pi / 2) ;
+  }
+  &:nth-of-type(7) {
+    --angle: calc(2 * pi / 3) ;
+  }
+  &:nth-of-type(8) {
+    --angle: calc(5 * pi / 6) ;
+  }
+  &:nth-of-type(9) {
+    --angle: pi ;
+  }
+  &:nth-of-type(10) {
+    --angle: calc(7 * pi / 6) ;
+  }
+  &:nth-of-type(11) {
+    --angle: calc(4 * pi / 3) ;
+  }
+  &:nth-of-type(12) {
+    --angle: calc(3 * pi / 2) ;
+  }
+
+
+}
